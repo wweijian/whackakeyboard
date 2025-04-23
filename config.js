@@ -1,7 +1,5 @@
-// config.js
 // Game configuration constants and settings
 
-// Valid characters
 export const validChars = "abcdefghijklmnopqrstuvwxyz0123456789-=[];',.";
 export const MAX_SCORE = Number.MAX_SAFE_INTEGER;
 

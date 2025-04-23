@@ -4,7 +4,6 @@
 import { validChars, MAX_SCORE, getTimeForDifficulty } from './config.js';
 import * as UI from './ui.js';
 
-// Game state
 const gameState = {
     active: false,
     score: 0,
@@ -21,7 +20,6 @@ const gameState = {
     progressFill: null
 };
 
-// Initialize the game
 export function initGame() {
     // Reset game variables
     gameState.score = 0;
@@ -162,7 +160,8 @@ export function handleKeyPress(key) {
         const pointsEarned = 1 + timeBonus;
         
         // Update score
-        gameState.score += pointsEarned;
+        if (gameState.currentDifficulty !== 'zen')
+            gameState.score += pointsEarned;
         gameState.score = Math.min(gameState.score, MAX_SCORE); // Ensure score doesn't exceed max
         UI.elements.scoreDisplay.textContent = `Score: ${Math.round(gameState.score * 10) / 10}`;
         gameState.keystrokes++;

@@ -156,7 +156,19 @@ export function displayGameStats(score, keystrokes, difficulty, timeLimit, timeR
 export function focusMobileInput() {
     const mobileInput = document.getElementById('mobile-input');
     if (mobileInput && isMobileDevice()) {
-        mobileInput.focus();
+        // iOS requires user interaction before focusing inputs
+        // Set a small delay to ensure iOS recognizes the focus
+        setTimeout(() => {
+            mobileInput.style.opacity = '0.01'; // Make slightly visible to iOS
+            mobileInput.style.position = 'absolute';
+            mobileInput.style.left = '0';
+            mobileInput.style.top = '0';
+            mobileInput.style.width = '100%';
+            mobileInput.style.height = '40px';
+            mobileInput.style.zIndex = '100';
+            mobileInput.blur();  // First blur to reset any existing focus
+            mobileInput.focus(); // Then focus
+        }, 300);
     }
 }
 

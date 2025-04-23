@@ -39,6 +39,7 @@ body {
     #config-screen h1 {
         font-size: 2.5rem;
         letter-spacing: 0.05em;
+        margin: 0 auto;
     }
     
     .config-section {
@@ -54,10 +55,11 @@ body {
 
 @media (max-width: 480px) {
     #config-screen h1 {
-        font-size: 2rem;
-        letter-spacing: normal;
-    }
-    
+        font-size: 1.8rem;
+        letter-spacing: 0.02em;
+        margin: 0 auto;
+	}
+
     .config-section h3 {
         font-size: 16px;
         margin-bottom: 5px;
@@ -108,7 +110,12 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     letter-spacing: 0.1em;
     text-align: center;
-	white-space: nowrap;
+    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .config-section {
@@ -171,19 +178,18 @@ body {
     max-width: 150px;
 }
 
-@media (max-width: 480px) {
-    #start-button {
-        padding: 10px 20px;
-        max-width: 120px;
-        /* Keep font size the same */
-        font-size: 18px;
-    }
-}
-
 #start-button:hover, #back-button:hover, #restart-button:hover {
     border-color: #efcb00;
     color: black;
     background-color: #ffd700;
+}
+
+@media (max-width: 320px) {
+    #start-button, #back-button, #restart-button {
+        padding: 6px 12px;
+        max-width: 80px;
+        font-size: 14px;
+    }
 }
 
 #countdown {
@@ -477,6 +483,42 @@ body {
     padding-left: 20px;
 }
 
+@media (max-width: 768px) {
+    #instructions-screen h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .instructions-content {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+    
+    .instructions-content p, .instructions-content li {
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    #instructions-screen h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    .instructions-content {
+        font-size: 12px;
+        margin: 5px 0;
+    }
+    
+    .instructions-content p, .instructions-content li {
+        margin-bottom: 5px;
+    }
+    
+    .instructions-content ul {
+        padding-left: 10px;
+    }
+}
+
 /* #back-button {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -495,8 +537,8 @@ body {
 } */
 
 #stop-game-button {
-	display: none;
-    margin-top: 15px;
+    display: none;
+    margin: 15px auto 0;
     padding: 10px 20px;
     background-color: #ffd700;
     color: white;
@@ -504,7 +546,7 @@ body {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-	font-family: 'Tektur', sans-serif;
+    font-family: 'Tektur', sans-serif;
 }
 
 @media (max-width: 768px) {

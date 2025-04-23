@@ -86,6 +86,7 @@ export function showWrongKey(key) {
 }
 
 // Update game screens visibility
+// Update game screens visibility
 export function showScreen(screenName) {
     // Hide all screens
     elements.configScreen.style.display = 'none';

@@ -2,7 +2,7 @@
 // Entry point for the application - connects everything together
 
 import * as Game from './game-logic.js';
-import { elements } from './ui.js';
+import { elements, showScreen } from './ui.js';
 
 // Event listeners for option selection
 elements.difficultyOptions.forEach(option => {

@@ -103,7 +103,6 @@ export function showWrongKey(key) {
 }
 
 // Update game screens visibility
-// Update game screens visibility
 export function showScreen(screenName) {
     // Hide all screens
     elements.configScreen.style.display = 'none';
@@ -122,22 +121,8 @@ export function showScreen(screenName) {
             break;
         case 'game':
             elements.gameScreen.style.display = 'block';
-            
-            // Handle mobile keyboard visibility
-            if (isMobileDevice()) {
-                // Create/refresh mobile keyboard
-                createMobileKeyboard();
-                
-                // Update current highlight on mobile keyboard
-                const highlightKey = document.querySelector('.key.highlight');
-                if (highlightKey) {
-                    const key = highlightKey.dataset.key;
-                    const mobileKey = document.querySelector(`.mobile-key[data-key="${key}"]`);
-                    if (mobileKey) {
-                        mobileKey.classList.add('highlight');
-                    }
-                }
-            }
+            // Focus the input field to trigger mobile keyboard
+            setTimeout(focusMobileInput, 300);
             break;
         case 'gameOver':
             elements.gameOverScreen.style.display = 'flex';
@@ -168,44 +153,13 @@ export function displayGameStats(score, keystrokes, difficulty, timeLimit, timeR
     elements.finalTime.textContent = timeLimit === 'infinite' ? 'Infinite' : `${timeLimit}s`;
 }
 
+export function focusMobileInput() {
+    const mobileInput = document.getElementById('mobile-input');
+    if (mobileInput && isMobileDevice()) {
+        mobileInput.focus();
+    }
+}
+
 export const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 };
-
-// Create mobile virtual keyboard
-export function createMobileKeyboard() {
-    const mobileKeyboard = document.getElementById('mobile-keyboard');
-    if (!mobileKeyboard) return;
-    
-    // Clear existing keyboard
-    mobileKeyboard.innerHTML = '';
-    
-    // Create a simplified keyboard with commonly used keys
-    const keysToShow = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 
-                        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-                        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '=', '[', ']', ';', "'", ',', '.'];
-    
-    // Create key elements in rows
-    const keysPerRow = 8;
-    for (let i = 0; i < keysToShow.length; i += keysPerRow) {
-        const row = document.createElement('div');
-        row.className = 'mobile-keyboard-row';
-        
-        for (let j = 0; j < keysPerRow && i + j < keysToShow.length; j++) {
-            const key = keysToShow[i + j];
-            const keyButton = document.createElement('button');
-            keyButton.className = 'mobile-key';
-            keyButton.dataset.key = key;
-            keyButton.textContent = key.toUpperCase();
-            keyButton.addEventListener('click', () => {
-                const event = new KeyboardEvent('keydown', {
-                    key: key
-                });
-                document.dispatchEvent(event);
-            });
-            row.appendChild(keyButton);
-        }
-        
-        mobileKeyboard.appendChild(row);
-    }
-}

@@ -3,7 +3,7 @@ body {
     text-align: center;
     background-size: cover;
 	background-image: url('asset/background.png');
-    background: linear-gradient(180deg, #06040cdd, #030108);
+    background: linear-gradient(0deg, #06040cef, #030108);
     background-position: center;
     background-attachment: fixed;
     margin: 0;
@@ -36,29 +36,61 @@ body {
 }
 
 @media (max-width: 768px) {
-    #game-container {
-        width: 95%;
-        padding: 10px;
-    }
-    
     #config-screen h1 {
         font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    #game-container {
-        width: 100%;
-        padding: 8px;
+        letter-spacing: 0.05em;
     }
     
-    #config-screen h1 {
-        font-size: 2rem;
+    .config-section {
+        margin: 10px 0;
     }
     
     .option-button {
         padding: 8px 12px;
         font-size: 14px;
+    }
+	
+}
+
+@media (max-width: 480px) {
+    #config-screen h1 {
+        font-size: 2rem;
+        letter-spacing: normal;
+    }
+    
+    .config-section h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .option-button {
+        padding: 5px 8px;
+        font-size: 12px;
+        border-width: 1px;
+    }
+    
+    .button-container {
+        margin-top: 20px;
+    }
+    
+    #start-button {
+        padding: 8px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-height: 640px) {
+    #config-screen h1 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    
+    .config-section {
+        margin: 8px 0;
+    }
+    
+    .button-container {
+        margin-top: 15px;
     }
 }
 
@@ -74,8 +106,9 @@ body {
     color: #ffd700;
     margin-bottom: 10px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    white-space: nowrap; /* Prevents wrapping */
-	letter-spacing: 0.1em; 
+    letter-spacing: 0.1em;
+    text-align: center;
+	white-space: nowrap;
 }
 
 .config-section {
@@ -123,22 +156,33 @@ body {
     margin-top: 40px;
 }
 
-#start-button {
+#start-button, #back-button, #restart-button {
     margin-top: 0px;
-    padding: 12px 30px;
+    padding: 6px 12px;
     background-color: transparent;
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
-	font-family: 'Tektur', sans-serif;
+    font-family: 'Tektur', sans-serif;
     font-size: 18px;
     cursor: pointer;
     transition: all 0.3s;
+	white-space: nowrap;
+    max-width: 150px;
 }
 
-#start-button:hover {
-    border-color: #ffd700;
-    color: white;
+@media (max-width: 480px) {
+    #start-button {
+        padding: 10px 20px;
+        max-width: 120px;
+        /* Keep font size the same */
+        font-size: 18px;
+    }
+}
+
+#start-button:hover, #back-button:hover, #restart-button:hover {
+    border-color: #efcb00;
+    color: black;
     background-color: #ffd700;
 }
 
@@ -302,7 +346,7 @@ body {
     font-family: 'Audiowide', cursive;
     font-size: 4rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	margin: 0 0 0px 0;
+    margin: 0 0 0px 0;
 }
 
 #game-over-headline {
@@ -310,6 +354,51 @@ body {
     color: #ffd700;
     margin: 0 0 30px 0;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    #game-over-screen h2 {
+        font-size: 3rem;
+    }
+    
+    #game-over-headline {
+        font-size: 1.2rem;
+        margin: 0 0 20px 0;
+    }
+    
+    #stats-container {
+        max-width: 90%;
+    }
+    
+    .stat-row {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    #game-over-screen h2 {
+        font-size: 2.5rem;
+    }
+    
+    #game-over-headline {
+        font-size: 1rem;
+        margin: 0 0 15px 0;
+    }
+    
+    #stats-container {
+        margin: 10px 0;
+    }
+    
+    .stat-row {
+        padding: 8px 0;
+        font-size: 12px;
+    }
+    
+    #restart-button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
 }
 
 #stats-container {
@@ -326,7 +415,7 @@ body {
     color: white; /* Added explicit color */
 }
 
-#restart-button {
+/* #restart-button {
 	margin-top: 30px;
 	padding: 12px 30px;
 	background-color: transparent;
@@ -342,7 +431,7 @@ body {
 #restart-button:hover {
 	border-color: #ffd700;
 	color: #ffd700;
-}
+} */
 
 /* Key widths for different sizes */
 .key-2x {
@@ -388,7 +477,7 @@ body {
     padding-left: 20px;
 }
 
-#back-button {
+/* #back-button {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
@@ -403,53 +492,43 @@ body {
 #back-button:hover {
     border-color: #ffd700;
     color: #ffd700;
-}
-
-/* Mobile controls */
-#mobile-controls {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.mobile-keyboard-row {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 5px;
-}
-
-.mobile-key {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #333;
-    color: white;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.mobile-key:active {
-    background-color: #555;
-}
+} */
 
 #stop-game-button {
+	display: none;
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: #ff5252;
+    background-color: #ffd700;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+	font-family: 'Tektur', sans-serif;
 }
 
-/* Show mobile controls only on mobile devices */
+@media (max-width: 768px) {
+    #stop-game-button {
+        display: block;
+    }
+}
+
+#mobile-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+}
+
+/* Replace the mobile controls with just the stop button */
+#mobile-controls {
+    display: none;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Show stop button only on mobile devices */
 @media (max-width: 768px) {
     #mobile-controls {
         display: flex;

@@ -3,7 +3,7 @@ body {
     text-align: center;
     background-size: cover;
 	background-image: url('asset/background.png');
-    background: linear-gradient(90deg, #06040cdd, #030108);
+    background: linear-gradient(180deg, #06040cdd, #030108);
     background-position: center;
     background-attachment: fixed;
     margin: 0;

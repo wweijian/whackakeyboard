@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add this line to include Montserrat font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap">
+    <!-- Existing code remains the same -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js"></script>
+    <title>Whack-a-keyboard!</title>
+</head>
+<body>
+	<div id="game-container">
+        <!-- Configuration Screen -->
+        <div id="config-screen">
+            <h1>WHACK-A-KEYBOARD!</h1>
+            
+            <div class="config-section">
+                <h3>Difficulty</h3>
+                <div class="option-buttons" id="difficulty-options">
+                    <div class="option-button selected" data-difficulty="zen">Zen</div>
+                    <div class="option-button" data-difficulty="easy">Easy</div>
+                    <div class="option-button" data-difficulty="medium">Medium</div>
+                    <div class="option-button" data-difficulty="difficult">Difficult</div>
+                    <div class="option-button" data-difficulty="hell">Hell</div>
+                </div>
+            </div>
+            
+            <div class="config-section">
+                <h3>Time Limit</h3>
+                <div class="option-buttons" id="time-options">
+                    <div class="option-button" data-time="30">30s</div>
+                    <div class="option-button selected" data-time="60">60s</div>
+                    <div class="option-button" data-time="90">90s</div>
+                    <div class="option-button" data-time="infinite">Infinite</div>
+                </div>
+            </div>
+            
+            <button id="start-button">Start Game</button>
+        </div>
+        <button id="instructions-button">Instructions</button>
+
+        <!-- Add this new screen -->
+        <div id="instructions-screen">
+            <h2>How to Play</h2>
+            <div class="instructions-content">
+                <p>Whack-a-keyboard is a typing speed and reaction time game where you need to press the highlighted keys before they expire.</p>
+                <p>When a key lights up, press it as quickly as possible to score points. The faster you press it, the more points you'll earn!</p>
+                <p>Different difficulty levels change how quickly you need to press each key:</p>
+                <ul>
+                    <li>Zen: No time pressure</li>
+                    <li>Easy: 5 seconds per key</li>
+                    <li>Medium: 2 seconds per key</li>
+                    <li>Difficult: 1 second per key</li>
+                    <li>Hell: Only 0.5 seconds per key!</li>
+                </ul>
+                <p>Choose a time limit for your game or play infinitely in the "Infinite" mode.</p>
+                <p>Press ESC at any time to end the game.</p>
+            </div>
+            <button id="back-button">Back</button>
+        </div>
+
+        <!-- Countdown Screen -->
+        <h1 id="countdown">3</h1>
+
+        <!-- Game Screen -->
+        <div id="game-screen">
+            <div id="game-header">
+                <div id="score-display">Score: 0</div>
+                <div id="timer-display">Time: 60s</div>
+            </div>
+            
+            <div id="keyboard-container">
+                <div class="keyboard">
+                    <!-- Row 1: numbers row -->
+                    <div class="keyboard-row">
+                        <div class="key" data-key="1">1</div>
+                        <div class="key" data-key="2">2</div>
+                        <div class="key" data-key="3">3</div>
+                        <div class="key" data-key="4">4</div>
+                        <div class="key" data-key="5">5</div>
+                        <div class="key" data-key="6">6</div>
+                        <div class="key" data-key="7">7</div>
+                        <div class="key" data-key="8">8</div>
+                        <div class="key" data-key="9">9</div>
+                        <div class="key" data-key="0">0</div>
+                        <div class="key" data-key="-">-</div>
+                        <div class="key" data-key="=">=</div>
+                    </div>
+                    
+                    <!-- Row 2: QWERTY row -->
+                    <div class="keyboard-row">
+                        <div class="key" data-key="q">Q</div>
+                        <div class="key" data-key="w">W</div>
+                        <div class="key" data-key="e">E</div>
+                        <div class="key" data-key="r">R</div>
+                        <div class="key" data-key="t">T</div>
+                        <div class="key" data-key="y">Y</div>
+                        <div class="key" data-key="u">U</div>
+                        <div class="key" data-key="i">I</div>
+                        <div class="key" data-key="o">O</div>
+                        <div class="key" data-key="p">P</div>
+                        <div class="key" data-key="[">[</div>
+                        <div class="key" data-key="]">]</div>
+                        <div class="key" data-key="\">\</div>
+                    </div>
+                    
+                    <!-- Row 3: ASDF row -->
+                    <div class="keyboard-row">
+                        <div class="key" data-key="a">A</div>
+                        <div class="key" data-key="s">S</div>
+                        <div class="key" data-key="d">D</div>
+                        <div class="key" data-key="f">F</div>
+                        <div class="key" data-key="g">G</div>
+                        <div class="key" data-key="h">H</div>
+                        <div class="key" data-key="j">J</div>
+                        <div class="key" data-key="k">K</div>
+                        <div class="key" data-key="l">L</div>
+                        <div class="key" data-key=";">;</div>
+                        <div class="key" data-key="'">'</div>
+                    </div>
+                    
+                    <!-- Row 4: ZXCV row -->
+                    <div class="keyboard-row">
+                        <div class="key" data-key="z">Z</div>
+                        <div class="key" data-key="x">X</div>
+                        <div class="key" data-key="c">C</div>
+                        <div class="key" data-key="v">V</div>
+                        <div class="key" data-key="b">B</div>
+                        <div class="key" data-key="n">N</div>
+                        <div class="key" data-key="m">M</div>
+                        <div class="key" data-key=",">,</div>
+                        <div class="key" data-key=".">.</div>
+                        <div class="key" data-key="/">/</div>
+                    </div>
+                </div>
+            </div>
+            <div id="esc-instruction">Press ESC to end the game</div>
+
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen">
+            <h2>Game Over!</h2>
+            
+            <div id="stats-container">
+                <div class="stat-row">
+                    <div>Total Score:</div>
+                    <div id="final-score">0</div>
+                </div>
+                <div class="stat-row">
+                    <div>Total Accurate Keystrokes:</div>
+                    <div id="total-keystrokes">0</div>
+                </div>
+                <div class="stat-row">
+                    <div>Keystrokes Per Minute:</div>
+                    <div id="keystrokes-per-minute">0</div>
+                </div>
+                <div class="stat-row">
+                    <div>Difficulty:</div>
+                    <div id="final-difficulty">Easy</div>
+                </div>
+                <div class="stat-row">
+                    <div>Time Setting:</div>
+                    <div id="final-time">60s</div>
+                </div>
+            </div>
+            
+            <button id="restart-button">Play Again</button>
+        </div>
+    </div>
+</body>
+</html>

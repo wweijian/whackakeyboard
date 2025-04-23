@@ -37,15 +37,28 @@ body {
 
 @media (max-width: 768px) {
     #game-container {
-        width: 95%; /* Adjust width on smaller screens */
-        padding: 10px; /* Reduce padding for smaller screens */
+        width: 95%;
+        padding: 10px;
+    }
+    
+    #config-screen h1 {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 480px) {
     #game-container {
-        width: 100%; /* Full width on very small screens */
-        padding: 10px;
+        width: 100%;
+        padding: 8px;
+    }
+    
+    #config-screen h1 {
+        font-size: 2rem;
+    }
+    
+    .option-button {
+        padding: 8px 12px;
+        font-size: 14px;
     }
 }
 
@@ -201,10 +214,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #222; /* Changed from #f9f9f9 */
-    color: white; /* Added explicit color */
+    background-color: #222;
+    color: white;
     user-select: none;
     position: relative;
+    font-size: 16px;
+}
+
+/* Add these media queries to adjust key size for different screens */
+@media (max-width: 768px) {
+    .key {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .key {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+    
+    .keyboard-row {
+        gap: 3px;
+    }
+    
+    .keyboard {
+        gap: 3px;
+    }
 }
 
 .key.highlight {
@@ -364,4 +403,59 @@ body {
 #back-button:hover {
     border-color: #ffd700;
     color: #ffd700;
+}
+
+/* Mobile controls */
+#mobile-controls {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.mobile-keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.mobile-key {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobile-key:active {
+    background-color: #555;
+}
+
+#stop-game-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Show mobile controls only on mobile devices */
+@media (max-width: 768px) {
+    #mobile-controls {
+        display: flex;
+    }
+    
+    #esc-instruction {
+        display: none;
+    }
 }

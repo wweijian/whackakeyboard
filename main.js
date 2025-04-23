@@ -3,6 +3,7 @@
 
 import * as Game from './game-logic.js';
 import { elements, showScreen } from './ui.js';
+import { isMobileDevice, createMobileKeyboard } from './ui.js';
 
 // Event listeners for option selection
 elements.difficultyOptions.forEach(option => {
@@ -48,7 +49,22 @@ document.addEventListener('keydown', (event) => {
 });
 
 // Initialize the game when page loads
-window.addEventListener('load', Game.initGame);
+window.addEventListener('load', () => {
+    // Initialize mobile controls if on mobile device
+    if (isMobileDevice()) {
+        createMobileKeyboard();
+        
+        // Add event listener for stop game button
+        const stopButton = document.getElementById('stop-game-button');
+        if (stopButton) {
+            stopButton.addEventListener('click', () => {
+                Game.forceEndGame();
+            });
+        }
+    }
+    
+    Game.initGame();
+});
 
 elements.instructionsButton.addEventListener('click', () => {
     showScreen('instructions');

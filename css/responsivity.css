@@ -1,0 +1,253 @@
+@media (max-width: 1024px) {
+    #game-container {
+        padding: 15px; /* Reduce padding for medium screens */
+    }
+}
+
+/* Add these media queries to adjust key size for different screens */
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 768px) {
+    
+    .config-section {
+        margin: 10px 0;
+    }
+    
+    .option-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .key {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+    
+    #game-over-screen h2 {
+        font-size: 3rem;
+    }
+    
+    #game-over-headline {
+        font-size: 1.2rem;
+        margin: 0 0 20px 0;
+    }
+    
+    #stats-container {
+        max-width: 90%;
+    }
+    
+    .stat-row {
+        font-size: 14px;
+    }
+    
+    #instructions-screen h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .instructions-content {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+    
+    .instructions-content p, .instructions-content li {
+        margin-bottom: 8px;
+    }
+
+    #stop-game-button {
+        display: block;
+    }
+
+    #mobile-controls {
+        display: flex;
+    }
+    
+    #esc-instruction {
+        display: none;
+    }
+}
+
+@media (max-height: 640px) {
+    
+    .config-section {
+        margin: 8px 0;
+    }
+    
+    .button-container {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .config-section h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .option-button {
+        padding: 5px 8px;
+        font-size: 12px;
+        border-width: 1px;
+    }
+    
+    .button-container {
+        margin-top: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .key {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+    
+    .keyboard-row {
+        gap: 3px;
+    }
+    
+    .keyboard {
+        gap: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    #instructions-screen h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    .instructions-content {
+        font-size: 12px;
+        margin: 5px 0;
+    }
+    
+    .instructions-content p, .instructions-content li {
+        margin-bottom: 5px;
+    }
+    
+    .instructions-content ul {
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #game-over-screen h2 {
+        font-size: 2.5rem;
+    }
+    
+    #game-over-headline {
+        font-size: 1rem;
+        margin: 0 0 15px 0;
+    }
+    
+    #stats-container {
+        margin: 10px 0;
+    }
+    
+    .stat-row {
+        padding: 8px 0;
+        font-size: 12px;
+    }
+    
+    #restart-button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+#mobile-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+}
+
+/* Replace the mobile controls with just the stop button */
+#mobile-controls {
+    display: none;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#stop-game-button {
+    display: none;
+    margin: 15px auto 0;
+    padding: 10px 20px;
+    background-color: #ffd700;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Tektur', sans-serif;
+}
+
+/* Small screen warning overlay - Add to the end of main.css */
+
+#small-screen-warning {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Tektur', sans-serif;
+    color: #ffd700;
+}
+
+#small-screen-warning h3 {
+    font-family: 'Audiowide', cursive;
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    margin-bottom: 15px;
+}
+
+#small-screen-warning p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    max-width: 500px;
+    margin: 0 auto;
+    color: white;
+    line-height: 1.5;
+}
+
+#small-screen-warning .keyboard-icon {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 639px) {
+    #small-screen-warning {
+        display: flex;
+    }
+}
+
+@media (max-height: 480px) {
+    #small-screen-warning h3 {
+        font-size: clamp(1.2rem, 6vw, 2rem);
+        margin-bottom: 10px;
+    }
+    
+    #small-screen-warning p {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+    }
+    
+    #small-screen-warning .keyboard-icon {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+        margin-bottom: 10px;
+    }
+}

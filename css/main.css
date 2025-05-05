@@ -1,0 +1,24 @@
+@import url('game.css');
+@import url('config.css');
+@import url('endgame.css');
+@import url('instructions.css');
+@import url('responsivity.css');
+@import url('keyboard.css');
+
+body {
+	font-family: 'Tektur', sans-serif;
+    text-align: center;
+    background-size: cover;
+	background-image: url('asset/background.png');
+    background: linear-gradient(0deg, #06040cef, #030108);
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(14px, 1.5vw, 20px);
+}

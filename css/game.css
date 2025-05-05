@@ -1,0 +1,80 @@
+#game-container {
+	margin-top: 50px;
+    width: 90%; 
+    max-width: 800px;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    box-sizing: border-box;
+    color: white;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#countdown {
+    display: none;
+    font-size: 100px;
+    font-weight: bold;
+    color: #ffeb3b;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: pulse-fade 1s infinite;
+}
+
+@keyframes pulse-fade {
+    0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    100% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
+}
+
+#game-screen {
+	display: none;
+}
+
+#game-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+#score-display, #timer-display {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+#keyboard-container {
+    margin: 40px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#esc-instruction {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+}
+
+.progress-bar {
+	height: 5px;
+	background-color: #ddd;
+	border-radius: 2px;
+	overflow: hidden;
+	margin-top: 2px;
+}
+
+.progress-fill {
+	height: 100%;
+	background-color: #4caf50;
+	width: 100%;
+	transition: width linear;
+}
